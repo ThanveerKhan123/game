@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="back">
+    <head>
+        <title>RANDOM NUMBER</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body class="">
+    <div class="box">
+    <h1 class="guess">Guess The Number</h1>
+    <p class="range">
+        We have selected a random number
+        between 1 - 10. See if you can
+        guess it.
+    </p>
+        <input type="text" placeholder="ENTER THE NUMBER"
+               id="guessField" 
+               class="guessField">
+               <button onclick="check()" class="submit">Submit</button>
+               <h3 id="score" >score:10</h3>
+               <h3 id="SCORE">score:0</h3>
+
+    <script type="text/javascript">
+        var score=document.getElementById("score");
+        var totlescore=10
+        var SCORE=document.getElementById("SCORE");
+        var TOTLESCORE=0;
+        // made for correct Guexss
+        let y = Math.floor(Math.random()*10 +1);
+        let guess = 1;
+        function check() {
+
+            let y = Math.floor(Math.random()*10 +1);
+
+            // Number guessed by user    
+            let x = document.getElementById("guessField").value;
+            if (x==y) {
+                alert("CONGRATULATIONS YOU GUESSED IT RIGHT IN "+ guess + " GUESS ");
+                    
+                TOTLESCORE=TOTLESCORE + 1
+                SCORE.textContent="Score : "+TOTLESCORE;
+            }
+            /* If guessed number is greater than actual number*/
+            else if (x  > 10) {
+                guess++;
+                alert("GUSSING NUMBERS BETWEEN 1 TO 10");
+                alert("Correct Answer : "+y)
+            }
+            else if(x<=0)
+            {
+                
+                alert("NEGATIVE NUMBER ARE NOT VALIED");
+            }
+            else if(totlescore==0){
+                alert("GAME VOER")
+
+            }
+            else if(TOTLESCORE==10){
+                alert("YOU WON GAME")
+                
+            }
+            else {
+                guess++;
+                alert("GUSSING NUMBER IS WRONG")
+                alert(" YOUR GUSSING NUMBRT IS : " + x +"    Correct Answer : "+y)
+
+                totlescore=totlescore-1
+                score.textContent="score : "+totlescore
+
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Number Guessing Game</title>
+</head>
+
+<body>
+    <h1>Guess The Number</h1>
+    <p>
+        We have selected a random number
+        between 1 - 10. See if you can
+        guess it.
+    </p>
+
+        <input type="text" 
+               id="guessField" 
+               class="guessField">
+
+               <button id="submitguess">Submit</button>
+
+    <script type="text/javascript">
+
+        // Generate a Random Number
+        var y=Math.random()
+        console.log(Math.floor(y*10)+1)
+
+        // Counting the number of guesses
+        // made for correct Guess
+        let guess = 1;
+
+        document.getElementById("submitguess").onclick = function () {
+
+            // Number guessed by user    
+            let x = document.getElementById("guessField").value;
+
+            if (x == y) {
+                alert(" YOU GUESSED IT RIGHT IN "
+                    + guess + " GUESS ");
+            }
+
+            /* If guessed number is greater than actual number*/
+            else if (x >y) {
+                guess++;
+                alert(" GUSSING NUMBERS BETWEEN 1 TO 10");
+                alert("Correct Answer : "+y)
+            }
+            else {
+                guess++;
+                alert("GUSSING NUMBER IS WRONG")
+                alert("Correct Answer : "+y)
+            }
+        }
+    </script>
+</body>
+
+</html>
